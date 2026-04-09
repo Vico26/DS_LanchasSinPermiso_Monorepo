@@ -1,7 +1,9 @@
 package com.example.model;
 
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.*;
 
+@Serdeable
 @Entity
 public class Tour {
 
