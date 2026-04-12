@@ -41,4 +41,45 @@ Daniela Suárez Quirós
 
 - [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
 
+HOW TO RUN TOUR SERVICE LOCALLY
+=================================
 
+REQUIREMENTS
+------------
+- Java 21 installed
+- Verify with: java -version
+
+RUNNING THE SERVICE
+-------------------
+From the tour_service/ folder in your terminal:
+
+   gradlew.bat run
+
+The server starts at: http://localhost:8080/tours
+
+When you see "Server Running: http://localhost:8080/tours" it is ready.
+
+STOPPING THE SERVICE
+--------------------
+Ctrl + C in the terminal where the service is running.
+
+TESTING WITH POWERSHELL
+------------------------
+Create a tour:
+   Invoke-RestMethod -Method Post -Uri http://localhost:8080/tours -ContentType "application/json" -Body '{"nombre":"Tour en Lancha","ubicacion":"Lago Arenal","precio":45.00}'
+
+List all tours:
+   Invoke-RestMethod http://localhost:8080/tours
+
+TESTING WITH GIT BASH
+----------------------
+Create a tour:
+   curl -X POST http://localhost:8080/tours -H "Content-Type: application/json" -d '{"nombre":"Tour en Lancha","ubicacion":"Rio Reventazon","precio":45.00}'
+
+List all tours:
+   curl http://localhost:8080/tours
+
+NOTES
+-----
+- Keep the terminal open while the service is running.
+- Data is lost on restart (H2 in-memory database).
